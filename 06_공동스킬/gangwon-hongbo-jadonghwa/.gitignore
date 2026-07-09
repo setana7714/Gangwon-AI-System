@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+out/
+out_*/
+output/
+# 개인정보가 담길 수 있는 원본·산출물은 커밋 금지 (에셋 png는 예외 유지)
+*.hwpx
+*.hwp
+*.pdf
+홍보콘텐츠.md
+~$*
+.DS_Store
+.venv/
