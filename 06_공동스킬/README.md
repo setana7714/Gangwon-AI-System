@@ -36,6 +36,14 @@
 
 
 
+\### 4. gangwon-hongbo-jadonghwa
+
+\- 카드뉴스·릴스·쇼츠 대본·SNS 홍보물 자동 생성
+
+\- 실제 파일 위치: `.claude/skills/gangwon-hongbo-jadonghwa/` (Claude Code 자동 인식을 위해 이동, 06\_공동스킬에는 안내용 README만 존재)
+
+
+
 \---
 
 
