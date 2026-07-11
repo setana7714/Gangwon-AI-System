@@ -4,10 +4,11 @@ window.SURVEY_CONFIG = {
   publicUrl: "https://setana7714.github.io/Gangwon-AI-System/03_%ED%96%89%EC%82%AC%EC%9A%B4%EC%98%81/2026%20silki_soulmunnzosa/",
   appsScriptUrl: "",
   adminPasscode: "5381",
-  surveyStartDate: "2026-07-11",
-  surveyEndDate: "2026-07-12",
+  surveyStartDate: "2026-10-26",
+  surveyEndDate: "2026-11-06",
   surveyStartTime: "09:00",
   surveyEndTime: "18:00"};
+
 
 
 
