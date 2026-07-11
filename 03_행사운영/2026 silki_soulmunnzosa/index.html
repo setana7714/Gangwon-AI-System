@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026년 강원학생예술실기대회 설문조사</title>
+  <link rel="stylesheet" href="./survey.css">
+  <script src="./config.js"></script>
+  <script src="./survey-data.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="kicker" id="agencyName">강원특별자치도교육청</p>
+        <h1 id="surveyTitle">2026년 강원학생예술실기대회 만족도 및 개선 의견 조사</h1>
+        <div id="surveyPeriod" class="lead" style="font-size:22px;font-weight:900;line-height:1.45;color:#1d4ed8;margin-top:18px;white-space:pre-line;"></div>
+        <p class="lead" id="surveyLead"></p>
+      </div>
+      <aside class="progress-card" aria-label="설문 진행률">
+        <div class="progress-labels">
+          <span id="currentQuestionText">현재 1번 문항</span>
+          <strong id="progressText">0% 완료</strong>
+        </div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <p id="totalQuestionText">0개 만족도 문항</p>
+      </aside>
+    </section>
+
+    <form id="surveyForm" class="survey-form">
+      <section class="form-card intro-card">
+        <div>
+          <span class="step-badge">01</span>
+          <h2>응답자 구분</h2>
+        </div>
+        <div id="respondentTypeGroup" class="segmented touch-grid" data-field="respondentType"></div>
+      </section>
+
+      <section class="form-card conditional" data-show-for="학생">
+        <div>
+          <span class="step-badge">02</span>
+          <h2>학생 기본 정보</h2>
+        </div>
+        <div id="studentFields" class="field-grid"></div>
+      </section>
+
+      <section class="form-card">
+        <div>
+          <span class="step-badge">03</span>
+          <h2>참가 분야</h2>
+          <p class="hint" id="disciplineHint"></p>
+        </div>
+        <div id="disciplineGroup" class="segmented touch-grid" data-field="discipline"></div>
+      </section>
+
+      <section class="question-section">
+        <div class="section-title">
+          <span class="step-badge">04</span>
+          <h2>만족도 문항</h2>
+        </div>
+        <div id="questionList" class="question-list"></div>
+      </section>
+
+      <section class="form-card">
+        <div>
+          <span class="step-badge">05</span>
+          <h2>서술형 의견</h2>
+        </div>
+        <div id="textQuestionList" class="text-question-list"></div>
+      </section>
+
+      <section class="notice">
+        <strong>제출 전 확인</strong>
+        <p id="privacyNotice"></p>
+      </section>
+
+      <p id="formError" class="status error" hidden></p>
+
+      <div class="actions">
+        <button type="submit" class="primary">설문 제출</button>
+        <a href="./admin.html" class="secondary">관리자 대시보드</a>
+      </div>
+    </form>
+
+    <section id="completePanel" class="complete-panel" hidden>
+      <span class="completion-mark">✓</span>
+      <p class="kicker">제출 완료</p>
+      <h2 id="completeTitle">응답이 제출되었습니다.</h2>
+      <p id="completeMessage"></p>
+      <button type="button" id="newResponse" class="primary">새 응답 작성</button>
+    </section>
+  </main>
+  <iframe name="submitFrame" class="hidden-frame" title="설문 제출"></iframe>
+  <script src="./app.js"></script>
+</body>
+</html>
+

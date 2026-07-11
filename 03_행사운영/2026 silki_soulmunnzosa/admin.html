@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>설문 관리자 대시보드</title>
+  <link rel="stylesheet" href="./survey.css">
+  <script src="./config.js"></script>
+  <script src="./survey-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip/dist/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+  <main class="app-shell dashboard-shell">
+    <section class="hero-panel dashboard-hero">
+      <div class="hero-copy">
+        <p class="kicker">관리자</p>
+        <h1>설문 결과 대시보드</h1>
+        <p class="lead">응답 현황, 분야별 통계, 긍정 응답률, 서술형 의견을 확인하고 엑셀 및 HWPX 보고서로 내보냅니다.</p>
+      </div>
+      <aside class="progress-card">
+        <span class="dashboard-label">관리자 인증</span>
+        <strong>암호 보호</strong>
+        <p>설문 결과와 다운로드 기능은 관리자 암호 입력 후 표시됩니다.</p>
+      </aside>
+    </section>
+
+    <section class="dashboard-panel">
+      <div id="loginBox" class="passcode form-card">
+        <div>
+          <span class="step-badge">Admin</span>
+          <h2>관리자 암호</h2>
+        </div>
+        <div class="passcode-row">
+          <input id="passcode" type="password" placeholder="관리자 암호" autocomplete="current-password">
+          <button id="unlock" class="primary" type="button">열기</button>
+        </div>
+        <p id="loginStatus" class="status error" hidden></p>
+      </div>
+
+      <div id="dashboard" hidden>
+        <div class="toolbar">
+          <button id="refresh" class="secondary" type="button">응답 새로고침</button>
+          <button id="downloadExcel" class="primary" type="button">엑셀 다운로드</button>
+          <button id="downloadReport" class="primary" type="button">HWPX 보고서 다운로드</button>
+          <button id="downloadQr" class="secondary" type="button">QR 코드 다운로드</button>
+          <a href="./index.html" class="secondary">설문 화면</a>
+        </div>
+        <p id="status" class="status"></p>
+
+        <section class="stat-grid">
+          <div class="stat">전체 응답 <b id="totalCount">0</b></div>
+          <div class="stat">학생 <b id="studentCount">0</b></div>
+          <div class="stat">학부모 <b id="parentCount">0</b></div>
+          <div class="stat">지도교사 <b id="teacherCount">0</b></div>
+        </section>
+
+        <section class="chart-grid">
+          <div class="chart-box"><h2>응답자 구분</h2><canvas id="typeChart"></canvas></div>
+          <div class="chart-box"><h2>참가 분야</h2><canvas id="disciplineChart"></canvas></div>
+          <div class="chart-box"><h2>문항별 평균</h2><canvas id="averageChart"></canvas></div>
+          <div class="chart-box"><h2>긍정 응답률</h2><canvas id="positiveChart"></canvas></div>
+        </section>
+
+        <section class="qr-box">
+          <h2>가정통신문용 QR 코드</h2>
+          <canvas id="qrCanvas"></canvas>
+          <p id="publicUrlText" class="status"></p>
+        </section>
+
+        <section class="table-box">
+          <h2>서술형 의견</h2>
+          <table>
+            <thead>
+              <tr><th>일시</th><th>구분</th><th>분야</th><th>좋았던 점</th><th>보완점</th><th>바라는 점</th></tr>
+            </thead>
+            <tbody id="commentRows"></tbody>
+          </table>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="./admin.js"></script>
+</body>
+</html>
